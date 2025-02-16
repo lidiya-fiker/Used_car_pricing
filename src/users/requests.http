@@ -28,6 +28,11 @@ GET http://localhost:3000/auth?email=lidu@gmail.com
 
 GET http://localhost:3000/auth/Whoami
 
+
+### Sign out 
+
+POST http://localhost:3000/auth/signout
+
 ###Delete the user with the id 
  
 DELETE http://localhost:3000/auth/11
