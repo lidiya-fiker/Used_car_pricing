@@ -9,6 +9,7 @@ import {
   Query,
   NotFoundException,
   Session,
+
 } from '@nestjs/common';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { UpdateUserDto } from './dtos/update-user.dto';
@@ -16,18 +17,27 @@ import { UsersService } from './users.service';
 import { Serialize } from 'src/interceptors/serialize.interceptors';
 import { UserDto } from './dtos/User.dto';
 import { AuthService } from './auth.service';
+import { CurrentUser } from './decorators/current-user.decorators';
+
+import { User } from './user.entity';
 
 @Controller('auth')
 @Serialize(UserDto)
+
 export class UsersController {
   constructor(
     private userService: UsersService,
     private authService: AuthService,
   ) {}
 
-  @Get('/Whoami')
-  WhoAmI(@Session() session: any) {
-    return this.userService.findOne(session.userId);
+  // @Get('/Whoami')
+  // WhoAmI(@Session() session: any) { 
+  //   return this.userService.findOne(session.userId);
+  // }
+
+  @Get('/whoami')
+  whoAmI(@CurrentUser() user: User) {
+    return user;
   }
 
   @Post('/signout')

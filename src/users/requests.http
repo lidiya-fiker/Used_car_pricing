@@ -3,8 +3,8 @@ POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
 {
-    "email": "test1@gmail.com",
-    "password": "test1"
+    "email": "test11@gmail.com",
+    "password": "test11"
 }
 
 ### Sign in as an existing user 
@@ -12,15 +12,14 @@ POST http://localhost:3000/auth/signin
 Content-Type: application/json
 
 {
-     "email": "test1@gmail.com",
-    "password": "test1"
+    "email": "test11@gmail.com",
+    "password": "test11"
 }
 
 ###Find a particular user with a given ID
 GET http://localhost:3000/auth/2
 
 ### Find all users with a given email
-
 GET http://localhost:3000/auth?email=lidu@gmail.com
 
 
@@ -30,7 +29,6 @@ GET http://localhost:3000/auth/Whoami
 
 
 ### Sign out 
-
 POST http://localhost:3000/auth/signout
 
 ###Delete the user with the id 
